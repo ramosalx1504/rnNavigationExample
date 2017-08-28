@@ -1,4 +1,4 @@
-package com.flightbot;
+package com.rnnavexample;
 
 import android.app.Application;
 import android.util.Log;

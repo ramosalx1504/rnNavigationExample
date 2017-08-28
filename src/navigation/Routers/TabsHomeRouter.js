@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -6,18 +7,17 @@ import {
   StatusBar,
   View
 } from 'react-native';
-import { Navigator, NativeModules } from 'react-native';
 
 import { COLOR, ThemeProvider } from 'react-native-material-ui';
 import { Toolbar, BottomNavigation, Icon } from 'react-native-material-ui';
-import Container from './Container';
+import Container from '../../../Container';
 
 import { TabRouter } from 'react-navigation';
 
-import TodayView from './Contents/today';
-import ProfileView from './Contents/profile';
-import MapView from './Contents/map';
-import ChatView from './Contents/chat';
+import TodayView from '../../views/Contents/today';
+import ProfileView from '../../views/Contents/profile';
+import MapView from '../../views/Contents/map';
+import ChatView from '../../views/Contents/chat';
 
 const uiTheme = {
   palette: {
@@ -38,7 +38,7 @@ const TabRoute = TabRouter({
   Map: { screen: MapView },
   Chat: {screen: ChatView}
   }, {
-    initialRouteName: 'Today',
+    initialRouteName: 'Today'
   }
 );
 
@@ -85,12 +85,6 @@ export default class App extends Component {
       <ThemeProvider uiTheme={uiTheme}>
         <Container>
           <StatusBar backgroundColor="rgba(0, 0, 0, 0.2)" translucent />
-
-          <Toolbar
-            leftElement="menu"
-            centerElement={this.state.active}
-            onLeftElementPress={() => this.navigate()}
-          />
 
           <TabContentNavigator value={this.state} key={this.state} />
 

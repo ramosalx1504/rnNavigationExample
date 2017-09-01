@@ -16,22 +16,22 @@ class SplashScreen extends Component {
   render() {
     return (
       <View>
-      	<Text>SplashScreen</Text>
-        <Text>{this.props.test.number}</Text>
-        <Button title='GO to lang' onPress={()=>{this.props.navigate('lang')}}>
+      	<Text style={{margin:15}}> SplashScreen View</Text>
 
-        </Button>
-        <Button title='Sirva por favor' onPress={()=>{this.props.increment()}}/>
+        <Text style={{margin:15}}> Reducer State </Text>
+
+        <Text style={{margin:15,fontSize:20}}> {this.props.test.number}</Text>
+        
+        <Button title='Increment Action Reducer' onPress={()=>{this.props.increment()}}/>
+
+        <View style={{marginTop:45}} />
+
+        <Button  title='GO to lang' onPress={()=>{this.props.navigate('lang')}}/>
       </View>
     );
   }
 }
 
 const mapStateToProps = ({test}) => ({test});
-
-const styles = StyleSheet.create({
-
-});
-
 
 export default connect(mapStateToProps,{increment})(SplashScreen);

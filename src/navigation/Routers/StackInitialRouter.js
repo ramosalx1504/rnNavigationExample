@@ -11,7 +11,7 @@ const StackRoute = StackRouter({
   tips : { screen: initialStack.tips},
   lang : { screen: initialStack.lang},
   Home: {
-    screen: App,
+    screen: initialStack.home,
   }
 }, {
   contentOptions: {

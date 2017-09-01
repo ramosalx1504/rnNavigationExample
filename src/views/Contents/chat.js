@@ -4,10 +4,14 @@ import {
   StyleSheet,
   Text,
   StatusBar,
-  View
+  View,
+  Button
 } from 'react-native';
 
-export default class ChatView extends Component {
+import {connect} from 'react-redux';
+import {increment} from '../../data/actions/TestActions';
+
+class ChatView extends Component {
   constructor(props, context) {
     super(props, context);
   }
@@ -18,10 +22,18 @@ export default class ChatView extends Component {
           <Text style={styles.welcome}>
             Welcome to Chat View
           </Text>
+          <Text style={styles.welcome}>
+            {this.props.test.number}
+          </Text>
+          <Button title='INcrement' onPress={()=>{this.props.increment()}}/>
         </View>
     );
   }
 };
+
+const mS = ({test})=>({test});
+
+export default connect(mS,{increment})(ChatView);
 
 const styles = StyleSheet.create({
   container: {
